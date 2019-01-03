@@ -19,7 +19,7 @@ for i=1:num
                 if (((m-cropstart-k)<cropsize)) == 1   %小于裁剪大小便跳至下一张图片
                     break
                 else    
-                    g = imcrop(image,[cropstart+j cropstart+k cropsize-1 cropsize-1])
+                    g = imcrop(image,[cropstart+k cropstart+j cropsize-1 cropsize-1])
                     imwrite(g,['2\',strcat(pics(i).name(1:end-4),strcat('-',strcat(num2str(new),'.png')))]);
                     new = new+1
                 end       
