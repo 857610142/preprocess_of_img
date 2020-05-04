@@ -1,27 +1,29 @@
 pics = dir('*.png')
 num = length(pics)
-cropnum = 500
-cropsize = 32
+cropnum = 1000
+cropsize = 63
 cropstart = 0
 stride = 6
 finnalpixel = stride*cropnum+1
+all = 0
 
 for i=1:num
-    image = imread(pics(i).name)
-    r = image(:,:,1)
-    [n m] = size(r)
-    new = 1
+    image = imread(strcat(num2str(i),'.png'));
+    r = image(:,:,1);
+    [n m] = size(r);
+    new = 1;
     for j=1:stride:finnalpixel
         if (((n-cropstart-j)<cropsize)) == 1
             break
         else
             for k=1:stride:finnalpixel
-                if (((m-cropstart-k)<cropsize)) == 1   %å°äºŽè£å‰ªå¤§å°ä¾¿è·³è‡³ä¸‹ä¸€å¼ å›¾ç‰‡
+                if (((m-cropstart-k)<cropsize)) == 1   %Ð¡ÓÚ²Ã¼ô´óÐ¡±ãÌøÖÁÏÂÒ»ÕÅÍ¼Æ¬
                     break
                 else    
-                    g = imcrop(image,[cropstart+k cropstart+j cropsize-1 cropsize-1])
-                    imwrite(g,['2\',strcat(pics(i).name(1:end-4),strcat('-',strcat(num2str(new),'.png')))]);
-                    new = new+1
+                    g = imcrop(image,[cropstart+k cropstart+j cropsize cropsize]);
+                    imwrite(g,['4\',strcat(num2str(i),strcat('-',strcat(num2str(new),'.png')))]);
+                    new = new+1;
+                    all = all+1
                 end       
             end
         end    
