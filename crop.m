@@ -8,6 +8,8 @@ finnalpixel = stride*cropnum+1
 all = 0
 
 for i=1:num
+    disp(i)
+    disp(all)
     image = imread(strcat(num2str(i),'.png'));
     r = image(:,:,1);
     [n m] = size(r);
