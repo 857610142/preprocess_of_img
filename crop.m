@@ -25,7 +25,7 @@ for i=1:num
                     g = imcrop(image,[cropstart+k cropstart+j cropsize-1 cropsize-1]);
                     imwrite(g,['1\',strcat(num2str(i),strcat('-',strcat(num2str(new),'.png')))]);
                     new = new+1;
-                    all = all+1；
+                    all = all+1;
                 end       
             end
         end    
